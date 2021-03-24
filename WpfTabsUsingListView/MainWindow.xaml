@@ -1,0 +1,56 @@
+﻿<Window x:Class="WpfTabsUsingListView.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfTabsUsingListView"
+        mc:Ignorable="d"
+        Title="WPF Tabs Using ListView Demo" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <ListView Style="{StaticResource ListViewTab}" Name="ListViewTab" ItemsSource="{Binding ElementName=TabControlTabs, Path=Items}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn>
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Header}"></TextBlock>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Label Grid.Row="0"></Label>
+
+            <TabControl Grid.Row="1" Name="TabControlTabs" SelectedItem="{Binding ElementName=ListViewTab, Path=SelectedItem}">
+                <TabItem Header="Test">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto">
+
+                    </ScrollViewer>
+                </TabItem>
+                <TabItem Header="Another Test">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto">
+
+                    </ScrollViewer>
+                </TabItem>
+                <TabItem Header="Final Test">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto">
+
+                    </ScrollViewer>
+                </TabItem>
+            </TabControl>
+         </Grid>
+    </Grid>
+</Window>
