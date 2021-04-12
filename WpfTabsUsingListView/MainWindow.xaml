@@ -5,14 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfTabsUsingListView"
         mc:Ignorable="d"
-        Title="WPF Tabs Using ListView Demo" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+        Title="WPF Tabs Using ListView Demo" Height="450" Width="800" WindowStartupLocation="CenterScreen" MinWidth="350" MinHeight="300">
     <Grid Margin="10">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <ListView Style="{StaticResource ListViewTab}" Name="ListViewTab" ItemsSource="{Binding ElementName=TabControlTabs, Path=Items}">
+        <ListView Style="{StaticResource ListViewTab}" Name="ListViewTab" ItemsSource="{Binding ElementName=TabControlTabs, Path=Items}" SelectedItem="{Binding ElementName=TabControlTabs, Path=SelectedItem, Mode=OneTime}">
             <ListView.View>
                 <GridView>
                     <GridViewColumn>
@@ -32,22 +32,85 @@
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
 
-            <Label Grid.Row="0"></Label>
+            <Label Grid.Row="0" Content="{Binding ElementName=TabControlTabs, Path=SelectedItem.Header}" Style="{StaticResource LabelTabHeader}"></Label>
 
-            <TabControl Grid.Row="1" Name="TabControlTabs" SelectedItem="{Binding ElementName=ListViewTab, Path=SelectedItem}">
+            <TabControl Grid.Row="1" Name="TabControlTabs" SelectedItem="{Binding ElementName=ListViewTab, Path=SelectedItem, Mode=OneWay}">
                 <TabItem Header="Test">
                     <ScrollViewer VerticalScrollBarVisibility="Auto">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                            </Grid.RowDefinitions>
 
+                            <TextBlock Grid.Row="0" Style="{StaticResource TextBlockFiller}" Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi a justo et magna tempor lacinia eget vel justo. Sed eget magna nec nulla fringilla tincidunt. Donec volutpat ex nisi, sed faucibus neque venenatis sit amet. Duis et sollicitudin massa, vitae lacinia odio. Phasellus sit amet mauris felis. Morbi velit nunc, lobortis sit amet sem ut, pellentesque malesuada augue. In a libero auctor, faucibus nulla id, sollicitudin turpis. Pellentesque posuere convallis venenatis. Sed tellus justo, egestas quis feugiat sit amet, pulvinar quis tellus. Nam ut placerat erat. Proin ut ipsum convallis enim lacinia iaculis sit amet eu nulla. Donec purus lorem, ultricies in metus ut, lobortis ultricies odio. Quisque vel est eget libero eleifend imperdiet eget in erat."></TextBlock>
+                            <TextBlock Grid.Row="1" Style="{StaticResource TextBlockFiller}" Text="Vestibulum consectetur, orci vel pellentesque ornare, lorem quam ornare lectus, sed rhoncus dolor odio nec augue. Vivamus quis tortor vel erat consectetur sollicitudin. Fusce mattis sem sed arcu tincidunt, non dapibus felis lacinia. Suspendisse dolor ex, tincidunt a dapibus consectetur, commodo vel est. Vivamus sed ante non massa convallis imperdiet et sed quam. Sed sagittis sem vitae pretium convallis. Fusce id neque id risus maximus tristique eu quis enim. Aenean vitae sodales risus."></TextBlock>
+                            <TextBlock Grid.Row="2" Style="{StaticResource TextBlockFiller}" Text="Vestibulum sed dignissim nisi. Sed leo massa, hendrerit rhoncus enim nec, rhoncus vestibulum massa. Sed vel eros vitae urna tincidunt porta ac a magna. Mauris quis ante in lectus efficitur ultricies. Vivamus posuere, nisl non feugiat dictum, tellus est vehicula ipsum, vel tempus quam turpis et ex. Vivamus vel pretium lorem. Vivamus ullamcorper porttitor risus, ut pulvinar neque cursus sit amet. Mauris mattis massa nec felis mattis egestas."></TextBlock>
+                            <TextBlock Grid.Row="3" Style="{StaticResource TextBlockFiller}" Text="Phasellus luctus nunc quis sagittis mattis. Aliquam at enim nisi. Pellentesque auctor metus metus, vitae mollis mauris viverra eu. Nulla facilisi. Aliquam ultricies rutrum metus. Curabitur ut tincidunt sapien, non venenatis massa. Morbi euismod vitae justo in venenatis. Etiam ex velit, vestibulum eu enim lacinia, facilisis aliquet magna. Nullam in arcu a nibh dapibus tempus."></TextBlock>
+                            <TextBlock Grid.Row="4" Style="{StaticResource TextBlockFiller}" Text="Vestibulum mollis dapibus tortor, id pulvinar massa pulvinar non. Ut gravida neque nunc, porttitor egestas arcu commodo nec. Nulla id tincidunt ex, tempor malesuada nisl. Praesent imperdiet posuere venenatis. Nunc vitae eros ex. Nunc fringilla nisl placerat, vulputate mi sed, pulvinar tortor. Donec vehicula fermentum leo a scelerisque. Phasellus nec magna efficitur, venenatis nulla in, tempus neque. Quisque interdum feugiat odio, vel molestie massa pulvinar sed. Ut porttitor, sapien eget lobortis ultricies, lorem dolor pharetra orci, lacinia bibendum ante diam non est. Praesent consectetur vel justo eget imperdiet. Aenean et tempor dui, eleifend pharetra nisi. Aenean sed arcu porta, rhoncus ante eget, sagittis erat. Maecenas imperdiet posuere leo, ut pretium tortor. Praesent et leo ligula. Vivamus sed eleifend odio, eu elementum massa."></TextBlock>
+                        </Grid>
                     </ScrollViewer>
                 </TabItem>
                 <TabItem Header="Another Test">
                     <ScrollViewer VerticalScrollBarVisibility="Auto">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                            </Grid.RowDefinitions>
 
+                            <TextBlock Grid.Row="0" Style="{StaticResource TextBlockFiller}" Text="Donec sed consectetur mi. Nullam sit amet tincidunt tortor, ac ultricies ante. Nam eu sapien non enim sodales fringilla. Proin sit amet tempus magna. Aenean nec elit enim. Proin posuere, dui vitae consectetur dictum, sapien nibh molestie diam, in suscipit magna nulla nec tellus. Nullam non enim feugiat, consectetur urna id, consequat metus."></TextBlock>
+                            <TextBlock Grid.Row="1" Style="{StaticResource TextBlockFiller}" Text="Nullam aliquet ipsum quis dui euismod pulvinar. Quisque vulputate magna odio, vitae consequat arcu finibus vitae. Maecenas ullamcorper sed mi eget tempor. Curabitur ut maximus sem. Morbi scelerisque, magna sed condimentum viverra, tortor quam dignissim libero, eu blandit massa magna dictum quam. Fusce lobortis auctor feugiat. Phasellus consequat leo vitae nunc tempor, ut commodo arcu cursus. Donec ultricies commodo quam tempor facilisis. Nulla vestibulum vel enim ut hendrerit. Sed varius ex vitae lacus congue hendrerit."></TextBlock>
+                            <TextBlock Grid.Row="2" Style="{StaticResource TextBlockFiller}" Text="Proin ornare at quam vel dictum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Maecenas placerat nisl facilisis rutrum semper. Quisque porttitor lacus a odio maximus pulvinar. Nunc commodo justo sed lectus lacinia, id viverra mauris sagittis. Nunc consequat leo urna, sed lobortis odio finibus sit amet. Donec in tellus gravida, bibendum felis eget, pellentesque diam. Curabitur porttitor metus eu ipsum iaculis ornare. Ut consectetur lobortis bibendum."></TextBlock>
+                            <TextBlock Grid.Row="3" Style="{StaticResource TextBlockFiller}" Text="Vestibulum sodales velit nunc, eget facilisis elit imperdiet id. Phasellus sed posuere sem. Maecenas in nisl nec lacus auctor aliquam. Sed erat neque, tincidunt eu ligula at, varius pulvinar sem. Nullam hendrerit nunc in dignissim mollis. Ut lectus erat, semper non venenatis vitae, tristique at quam. Nam fringilla mi sit amet mi viverra, vitae scelerisque leo ornare."></TextBlock>
+                            <TextBlock Grid.Row="4" Style="{StaticResource TextBlockFiller}" Text="Maecenas fringilla molestie massa sit amet pellentesque. Suspendisse ornare eros nec dolor dapibus bibendum. Quisque consectetur sed arcu ut ullamcorper. Sed aliquam mollis tortor sit amet placerat. Curabitur condimentum non tellus dapibus condimentum. Duis id nisi ac sem cursus molestie pellentesque nec metus. Curabitur maximus mi imperdiet, venenatis quam sit amet, iaculis mi."></TextBlock>
+                            <TextBlock Grid.Row="5" Style="{StaticResource TextBlockFiller}" Text="Vestibulum nunc turpis, tincidunt eget orci eu, laoreet sodales ante. Mauris egestas, justo nec accumsan porta, est purus pulvinar arcu, quis tempor felis erat et erat. Quisque ultricies orci eget lacus fringilla ornare. Sed convallis tortor ante, semper laoreet ex tincidunt at. Integer in turpis tortor. Proin auctor, justo ut elementum faucibus, elit lectus convallis elit, quis sollicitudin libero dolor et odio. Vivamus id eros enim. Etiam maximus, tortor quis viverra sollicitudin, augue elit facilisis est, vitae euismod risus libero et nisl. Ut non lectus sed turpis molestie imperdiet. Proin eget cursus nisl."></TextBlock>
+                            <TextBlock Grid.Row="6" Style="{StaticResource TextBlockFiller}" Text="Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla vitae metus pharetra, lacinia nisl quis, dignissim mauris. Nulla vulputate semper elit. Vivamus dictum fringilla dui, quis dapibus lectus. Donec metus justo, tempus id consectetur in, blandit a diam. Etiam commodo libero at risus ultricies tempus. Cras lectus ligula, semper sit amet sollicitudin ac, ornare id sapien. Phasellus nisi quam, molestie ut euismod vel, maximus vitae risus. Aenean id efficitur erat. Donec euismod justo sit amet iaculis venenatis. Praesent semper lorem in tellus euismod ultrices. Aliquam et nulla non erat euismod tempus. Vestibulum nec pulvinar velit, eu laoreet lorem. Nunc ultricies, nisi et pulvinar commodo, ex nisl volutpat massa, ac venenatis lacus eros non nunc. Vestibulum pulvinar erat ut tincidunt faucibus."></TextBlock>
+                        </Grid>
                     </ScrollViewer>
                 </TabItem>
                 <TabItem Header="Final Test">
                     <ScrollViewer VerticalScrollBarVisibility="Auto">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                            </Grid.RowDefinitions>
 
+                            <GroupBox Grid.Row="0" Header="Choices">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition></RowDefinition>
+                                        <RowDefinition></RowDefinition>
+                                        <RowDefinition></RowDefinition>
+                                    </Grid.RowDefinitions>
+
+                                    <RadioButton Grid.Row="0" GroupName="Choices" Content="First" IsChecked="True"></RadioButton>
+                                    <RadioButton Grid.Row="1" GroupName="Choices" Content="Second"></RadioButton>
+                                    <RadioButton Grid.Row="2" GroupName="Choices" Content="Third"></RadioButton>
+                                </Grid>
+                            </GroupBox>
+
+                            <GroupBox Grid.Row="1" Header="More Choices">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition></RowDefinition>
+                                        <RowDefinition></RowDefinition>
+                                    </Grid.RowDefinitions>
+
+                                    <CheckBox Grid.Row="0" Content="A choice"></CheckBox>
+                                    <CheckBox Grid.Row="1" Content="Another choice"></CheckBox>
+                                </Grid>
+                            </GroupBox>
+                        </Grid>
                     </ScrollViewer>
                 </TabItem>
             </TabControl>

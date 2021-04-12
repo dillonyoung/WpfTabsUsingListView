@@ -6,6 +6,32 @@
     <Application.Resources>
         <Style x:Key="ListViewTab" TargetType="ListView">
             <Setter Property="Width" Value="200"></Setter>
+            <Setter Property="Margin" Value="0 0 10 0"></Setter>
+        </Style>
+        <Style TargetType="{x:Type GridViewColumnHeader}">
+            <Setter Property="Visibility" Value="Collapsed"></Setter>
+        </Style>
+        <Style TargetType="{x:Type TabItem}">
+            <Setter Property="Visibility" Value="Collapsed"></Setter>
+        </Style>
+        <Style TargetType="{x:Type TabControl}">
+            <Setter Property="BorderThickness" Value="0"></Setter>
+        </Style>
+        <Style x:Key="LabelTabHeader" TargetType="Label">
+            <Setter Property="Background" Value="{x:Static SystemColors.ControlDarkDarkBrush}"></Setter>
+            <Setter Property="Foreground" Value="{x:Static SystemColors.ControlLightLightBrush}"></Setter>
+            <Setter Property="FontWeight" Value="Bold"></Setter>
+            <Setter Property="Margin" Value="0 0 0 10"></Setter>
+        </Style>
+        <Style x:Key="TextBlockFiller" TargetType="TextBlock">
+            <Setter Property="TextWrapping" Value="Wrap"></Setter>
+            <Setter Property="Margin" Value="4 0 4 10"></Setter>
+        </Style>
+        <Style TargetType="{x:Type RadioButton}">
+            <Setter Property="Margin" Value="4"></Setter>
+        </Style>
+        <Style TargetType="{x:Type CheckBox}">
+            <Setter Property="Margin" Value="4"></Setter>
         </Style>
     </Application.Resources>
 </Application>
